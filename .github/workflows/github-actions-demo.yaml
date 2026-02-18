@@ -26,6 +26,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Production
     steps:
       - uses: actions/checkout@v5
       - run: echo ${{ github.event_name }}
