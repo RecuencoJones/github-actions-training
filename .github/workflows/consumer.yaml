@@ -1,0 +1,16 @@
+name: Consumer
+
+on:
+  workflow_dispatch:
+
+jobs:
+  greet:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      who-to-greet: 'RecuencoJones'
+
+  use-output:
+    runs-on: ubuntu-latest
+    needs: [greet]
+    steps:
+      - run: echo "Time was ${{ needs.greet.outputs.current-time }}"
